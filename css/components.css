@@ -39,11 +39,12 @@ body::before {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: var(--z-nav);
-  height: 5rem;
+  min-height: 5rem;
   padding: 0 var(--page-pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--sp-5);
   background: linear-gradient(to bottom, var(--c-nav-scrim), transparent);
   backdrop-filter: blur(6px);
 }
@@ -68,6 +69,9 @@ body::before {
   display: flex;
   gap: var(--sp-6);
   font-size: var(--fs-small);
+  flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .topnav__links a {
   color: var(--c-text-faint);
