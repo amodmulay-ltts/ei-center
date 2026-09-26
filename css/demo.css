@@ -11,9 +11,9 @@
 /* Navigation */
 .demo-nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  gap: var(--sp-5);
+  padding: var(--sp-4) var(--page-pad-x);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
@@ -63,30 +63,33 @@
 
 /* Hero section */
 .demo-hero {
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, rgba(0, 150, 200, 0.05) 0%, transparent 100%);
+  padding: var(--sp-7) 0 var(--sp-6);
 }
 
+/* Title and tagline stack; the status badge sits top-right. */
 .demo-hero__head {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--sp-3) var(--sp-5);
+  margin-bottom: var(--sp-4);
 }
 
 .demo-hero__title {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: var(--fw-semi);
   margin: 0;
-  line-height: 1.2;
-  flex: 1;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.03em;
 }
 
 .demo-hero__tagline {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  margin: 1rem 0 0 0;
-  font-weight: 500;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  color: var(--c-accent-2);
+  margin: 0;
+  font-weight: var(--fw-light);
 }
 
 .demo-hero__summary {
@@ -99,11 +102,14 @@
 /* Main content */
 .demo-main {
   flex: 1;
-  padding: 2rem;
-  max-width: 60rem;
-  margin: 0 auto;
   width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 var(--page-pad-x) var(--sp-8);
 }
+
+/* Long-form prose keeps a comfortable measure even on wide screens. */
+.demo-content { max-width: 62rem; }
 
 .demo-details {
   display: flex;
@@ -320,33 +326,16 @@
 /* Responsive */
 /* Medium screens (1200-1600px): reduce padding and font sizes */
 @media (max-width: 1600px) and (min-width: 769px) {
-  .demo-hero {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .demo-hero__title {
-    font-size: 2rem;
-  }
-
-  .demo-hero__tagline {
-    font-size: 1.125rem;
-  }
-
-  .demo-main {
-    padding: 1.5rem;
-    max-width: 55rem;
-  }
-
   .demo-section h2 {
     font-size: 1.25rem;
   }
 
   .demo-kpis {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .demo-features {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 }
 

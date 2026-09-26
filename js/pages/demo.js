@@ -15,42 +15,64 @@
     return params.get("id");
   }
 
-  /* Load markdown content from docs folder */
-  function loadMarkdownContent(demoId) {
-    return fetch("docs/" + demoId + "-about.md")
-      .then(function (resp) {
-        if (!resp.ok) {
-          return fetch("docs/" + demoId + "-story.md")
-            .then(function (r) { return r.text(); });
-        }
-        return resp.text();
-      })
-      .catch(function () {
-        return null;
-      });
+  /*
+   * Markdown → DOM nodes. Builds elements rather than setting innerHTML
+   * so a write-up can never inject markup — same rule as EI.h. Covers
+   * the subset the docs use: #/##/### headings, "- " bullets,
+   * blank-line paragraphs, **bold**, *italic*.
+   */
+  function inline(text) {
+    var out = [];
+    var re = /\*\*([^*]+)\*\*|\*([^*]+)\*/g;
+    var last = 0, m;
+    while ((m = re.exec(text)) !== null) {
+      if (m.index > last) out.push(text.slice(last, m.index));
+      out.push(m[1] ? h("strong", null, m[1]) : h("em", null, m[2]));
+      last = re.lastIndex;
+    }
+    if (last < text.length) out.push(text.slice(last));
+    return out;
   }
 
-  /* Convert markdown to basic HTML (minimal, production-ready) */
-  function markdownToHtml(md) {
-    if (!md) return "";
+  function renderMarkdown(md) {
+    var blocks = [];
+    var para = [];
+    var bullets = [];
 
-    return md
-      /* Headers */
-      .replace(/^### (.*?)$/gm, "<h3>$1</h3>")
-      .replace(/^## (.*?)$/gm, "<h2>$1</h2>")
-      .replace(/^# (.*?)$/gm, "<h1>$1</h1>")
-      /* Bold and italic */
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      /* Lists */
-      .replace(/^- (.*?)$/gm, "<li>$1</li>")
-      .replace(/(<li>.*?<\/li>)/s, function (match) {
-        return "<ul>" + match + "</ul>";
-      })
-      /* Line breaks for paragraphs */
-      .replace(/\n\n+/g, "</p><p>")
-      .replace(/^(?!<)/, "<p>")
-      .replace(/$(?!<)/, "</p>");
+    function flushPara() {
+      if (!para.length) return;
+      blocks.push(h("p", null, inline(para.join(" "))));
+      para = [];
+    }
+    function flushList() {
+      if (!bullets.length) return;
+      blocks.push(h("ul", null, bullets.map(function (b) {
+        return h("li", null, inline(b));
+      })));
+      bullets = [];
+    }
+
+    md.split(/\r?\n/).forEach(function (line) {
+      var t = line.trim();
+      if (!t) { flushPara(); flushList(); return; }
+
+      var head = /^(#{1,3})\s+(.*)$/.exec(t);
+      if (head) {
+        flushPara(); flushList();
+        blocks.push(h("h" + head[1].length, null, inline(head[2])));
+        return;
+      }
+
+      var bullet = /^[-*]\s+(.*)$/.exec(t);
+      if (bullet) { flushPara(); bullets.push(bullet[1]); return; }
+
+      flushList();
+      para.push(t);
+    });
+
+    flushPara();
+    flushList();
+    return blocks;
   }
 
   /* Render header with back link and theme toggle */
@@ -145,7 +167,7 @@
     if (!content) return null;
     return h("section", { class: "demo-section demo-section--content" },
       h("h2", null, "About"),
-      h("div", { class: "demo-content", innerHTML: markdownToHtml(content) })
+      h("div", { class: "demo-content" }, renderMarkdown(content))
     );
   }
 
@@ -182,6 +204,8 @@
         )
       )
     ));
+
+    ui.enableReveal(target);
   }
 
   /* Bootstrap the demo page */
@@ -202,11 +226,10 @@
       return;
     }
 
-    loadMarkdownContent(demoId).then(function (content) {
-      render(document.getElementById("app"), store, demo, content);
-      document.documentElement.dataset.ready = "true";
-      EI.demo = { store: store, demo: demo };
-    });
+    var content = (data.docs || {})[demoId] || null;
+    render(document.getElementById("app"), store, demo, content);
+    document.documentElement.dataset.ready = "true";
+    EI.demo = { store: store, demo: demo };
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

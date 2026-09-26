@@ -5,6 +5,7 @@
   "description": "LTTS Engineering Intelligence Center Munich: landing page and demo pages for the 85\" display. Static, offline, no dependencies.",
   "scripts": {
     "test": "node --test \"tests/**/*.test.js\"",
+    "build:docs": "node tools/build-docs.js",
     "screenshot": "node tools/screenshot.js"
   }
 }

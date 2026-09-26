@@ -34,6 +34,12 @@
   --accent-color:   var(--c-accent);
   --hover-bg:       var(--c-surface-hover);
 
+  /* ---- Theme-dependent decoration ---- */
+  --c-nav-scrim:  rgba(7, 11, 20, 0.92);
+  --c-dot:        rgba(255, 255, 255, 0.05);
+  --c-kpi-from:   #ffffff;
+  --c-kpi-to:     #b9c9e6;
+
   /* ---- Brand accents (use sparingly) ---- */
   --c-accent:      #3d8bff;
   --c-accent-soft: rgba(61, 139, 255, 0.14);
@@ -128,40 +134,34 @@ html[data-theme="light"] {
   --border-color:   var(--c-line);
   --accent-color:   #2563eb;
   --hover-bg:       var(--c-surface-hover);
+
+  --c-accent:      #2563eb;
+  --c-accent-soft: rgba(37, 99, 235, 0.10);
+  --c-accent-2:    #0d9488;
+
+  --c-nav-scrim:  rgba(248, 249, 250, 0.92);
+  --c-dot:        rgba(0, 0, 0, 0.05);
+  --c-kpi-from:   #1a1a1a;
+  --c-kpi-to:     #4a5568;
 }
 
-/* Responsive scaling: larger screens use proportional, smaller screens use fixed minimum */
+/*
+ * The layout is authored on a 1920x1080 canvas at 1rem = 16px and scales
+ * proportionally. min() fits BOTH axes so whichever dimension is the
+ * binding constraint wins; max() holds a readability floor once the
+ * window is small enough that proportional text would be too small.
+ *
+ *   3840x2160 -> 32px  (the 85" display, design target)
+ *   1920x1080 -> 16px  (authoring size)
+ *   1600x1200 -> 14px  (width-bound, hits the floor)
+ */
 html {
-  /* Default: proportional scaling for large displays (1920px+) */
-  font-size: clamp(14px, calc(100vw / 120), 20px);
+  font-size: max(14px, min(calc(100vw / 120), calc(100vh / 67.5)));
 }
 
-/* Taller-than-16:9 windows: scale by height instead so nothing overflows. */
-@media (max-aspect-ratio: 16/9) {
-  html {
-    font-size: clamp(14px, calc(100vh / 67.5), 20px);
-  }
-}
-
-/* Tablets and lower resolutions: use larger minimum for readability */
-@media (max-width: 1920px) {
-  html {
-    font-size: clamp(14px, calc(100vw / 110), 16px);
-  }
-}
-
-/* Smaller tablets: explicit sizing */
-@media (max-width: 1200px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-/* Mobile: scale down appropriately */
+/* Below the floor the page stops scaling, so layouts reflow instead. */
 @media (max-width: 768px) {
-  html {
-    font-size: 13px;
-  }
+  html { font-size: 13px; }
 }
 
 /* Responsive padding for smaller screens */

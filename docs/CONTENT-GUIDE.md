@@ -6,6 +6,7 @@ How to change what appears on the EI Center screen. No coding required: you only
 |---|---|
 | Hero text, stats, lenses, lifecycle stages, customer proof, engagement model, settings | [`data/site.js`](../data/site.js) |
 | Anything about a demo: add, remove, reword, KPIs, launch link | [`data/demos.js`](../data/demos.js) |
+| The long "About" write-up on a demo page | `docs/<demo-id>-about.md` — then run `npm run build:docs` |
 
 After editing, run `npm test`. It checks your changes and tells you exactly what's wrong if something doesn't fit. If you don't have Node, open the page and press **F12**; validation errors are printed to the console and the page still loads.
 
@@ -78,6 +79,28 @@ Empty lists are fine: the demo page hides any section that has no content.
 - No passwords or internal Azure hostnames anywhere in the content.
 - Customer names from `site.proofs` must not appear in demo copy (use an alias).
 - `showCustomerNames` ships as `false`.
+
+## The "About" write-up on a demo page
+
+Each demo page can show a long-form write-up under **About**. Put it in
+`docs/<demo-id>-about.md` (`-story.md` also works) and run:
+
+```
+npm run build:docs
+```
+
+That compiles every write-up into `data/docs.js`, which the demo page loads as a
+plain script — the display runs offline from `file://`, where fetching a file at
+runtime is blocked. **Edit the `.md`, never `data/docs.js`; it is generated.**
+
+Supported markdown: `#`/`##`/`###` headings, `- ` bullets, blank-line paragraphs,
+`**bold**`, `*italic*`. Anything else renders as plain text. A demo with no `.md`
+simply has no About section — the rest of its page is unaffected.
+
+These demos have no write-up yet: `ticket-rca`, `sima-ai`, `qassure`,
+`vision-inspection`, `food-quality-inspection`, `supply-chain-tower`,
+`test-bench-cockpit`, `oxygenator-twin`, `lights-out-factory`, `aiinfonix`,
+`sdv-middleware`, `lca-automation`, `substance-compliance`.
 
 ## Adding a lens or stage
 

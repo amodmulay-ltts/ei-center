@@ -152,10 +152,15 @@ html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   gap: var(--sp-7);
 }
 .gallery__head .filters { justify-content: flex-end; max-width: 50rem; }
+/*
+ * rem-based track so the column count stays consistent as the whole page
+ * scales with the viewport — a fixed px minimum would give 6 columns at
+ * 1600px but 14 on the 4K display.
+ */
 .gallery__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+  gap: var(--sp-4);
 }
 .gallery__grid .demo-card[hidden] { display: none; }
 
@@ -274,6 +279,34 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
 
 /* Responsive: tablets (max 768px) */
 @media (max-width: 768px) {
+  /* Seven lifecycle stages and seven nav links can't sit in a row here. */
+  .lifecycle {
+    grid-template-columns: 1fr;
+  }
+
+  .topnav {
+    height: auto;
+    flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-4);
+    padding-block: var(--sp-3);
+  }
+
+  .topnav__links {
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    order: 3;
+    width: 100%;
+  }
+
+  .topnav__actions {
+    margin-left: auto;
+  }
+
+  .section {
+    min-height: auto;
+    padding-top: var(--sp-8);
+  }
+
   .hero__title {
     font-size: 2.5rem;
     max-width: 10ch;

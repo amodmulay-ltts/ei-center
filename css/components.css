@@ -14,7 +14,7 @@ body::before {
   background:
     radial-gradient(60rem 40rem at 85% -10%, rgba(61, 139, 255, 0.16), transparent 60%),
     radial-gradient(50rem 36rem at -10% 110%, rgba(63, 208, 201, 0.10), transparent 60%),
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0) 0 0 / 2rem 2rem,
+    radial-gradient(circle at 1px 1px, var(--c-dot) 1px, transparent 0) 0 0 / 2rem 2rem,
     var(--c-bg);
 }
 
@@ -44,7 +44,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(7, 11, 20, 0.92), rgba(7, 11, 20, 0));
+  background: linear-gradient(to bottom, var(--c-nav-scrim), transparent);
   backdrop-filter: blur(6px);
 }
 
@@ -112,7 +112,7 @@ body::before {
   font-weight: var(--fw-semi);
   line-height: 1;
   letter-spacing: -0.03em;
-  background: linear-gradient(180deg, #fff, #b9c9e6);
+  background: linear-gradient(180deg, var(--c-kpi-from), var(--c-kpi-to));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
