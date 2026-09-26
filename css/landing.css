@@ -154,8 +154,8 @@ html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 .gallery__head .filters { justify-content: flex-end; max-width: 50rem; }
 .gallery__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--sp-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--sp-3);
 }
 .gallery__grid .demo-card[hidden] { display: none; }
 

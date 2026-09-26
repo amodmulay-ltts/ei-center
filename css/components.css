@@ -130,8 +130,8 @@ body::before {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3);
-  padding: var(--sp-5) var(--sp-5) var(--sp-6);
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-4) var(--sp-5);
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: var(--radius-lg);
