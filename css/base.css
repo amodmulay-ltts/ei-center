@@ -1,0 +1,179 @@
+/*
+ * EI Center — base styles and shared components
+ * ------------------------------------------------------------------
+ * Reset, typography and the small set of reusable components
+ * (eyebrow, button, badge, lens dot, card). Page-specific layout
+ * lives in its own stylesheet (landing.css, demo.css).
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* html font-size is owned by tokens.css (viewport scaling); don't set it here. */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-sans);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: var(--fs-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3 { font-weight: var(--fw-semi); line-height: var(--lh-tight); letter-spacing: -0.02em; }
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; margin: 0; padding: 0; }
+
+:focus-visible {
+  outline: 0.1875rem solid var(--c-accent);
+  outline-offset: 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Typography helpers ---------- */
+
+.eyebrow {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semi);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent-2);
+}
+
+.muted { color: var(--c-text-muted); }
+.faint { color: var(--c-text-faint); }
+
+/* ---------- Button ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 1rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semi);
+  border: 1px solid var(--c-line-strong);
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.btn:hover { background: var(--c-surface-hover); }
+.btn:active { transform: scale(0.98); }
+
+.btn--primary {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+.btn--primary:hover { background: #5a9dff; }
+
+.btn--lg { padding: 1.25rem 2.5rem; font-size: var(--fs-h3); }
+
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ---------- Status badge ---------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--c-text-muted);
+  white-space: nowrap;
+}
+.badge::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+.badge--live   { color: var(--c-status-live); }
+.badge--remote { color: var(--c-status-remote); }
+.badge--soon   { color: var(--c-status-soon); }
+
+/* ---------- Lens dot ---------- */
+
+.lens {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--c-text-muted);
+}
+.lens::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--lens-color, var(--c-accent));
+}
+.lens--engineering    { --lens-color: var(--c-lens-engineering); }
+.lens--agentic        { --lens-color: var(--c-lens-agentic); }
+.lens--physical       { --lens-color: var(--c-lens-physical); }
+.lens--industrial     { --lens-color: var(--c-lens-industrial); }
+.lens--sustainability { --lens-color: var(--c-lens-sustainability); }
+
+/* ---------- Card ---------- */
+
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+}
+
+/* ---------- Utility ---------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Theme Toggle ---------- */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  background: var(--c-surface);
+  color: var(--c-text);
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all var(--dur-fast) ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--c-accent);
+  background: var(--c-surface-hover);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}

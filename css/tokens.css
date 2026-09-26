@@ -1,0 +1,194 @@
+/*
+ * EI Center — design tokens
+ * ------------------------------------------------------------------
+ * Single source of truth for colour, type, spacing and motion.
+ * Every other stylesheet consumes these variables; never hard-code
+ * values elsewhere.
+ *
+ * Scaling model: the layout is authored on a 1920×1080 canvas where
+ * 1rem = 16px. The root font-size is tied to viewport width, so the
+ * same layout renders pixel-proportionally on a 4K 85" display
+ * (1rem = 32px) or a laptop.
+ */
+
+:root {
+  /* ---- Surfaces (dark mode) ---- */
+  --c-bg:            #070b14;
+  --c-bg-raised:     #0c1220;
+  --c-surface:       #111a2c;
+  --c-surface-hover: #172238;
+  --c-line:          rgba(255, 255, 255, 0.08);
+  --c-line-strong:   rgba(255, 255, 255, 0.16);
+
+  /* ---- Text (dark mode) ---- */
+  --c-text:        #f2f5fa;
+  --c-text-muted:  #97a3b9;
+  --c-text-faint:  #5d6a82;
+
+  /* ---- Semantic aliases (used throughout the app) ---- */
+  --bg-primary:     var(--c-bg);
+  --bg-secondary:   var(--c-bg-raised);
+  --text-primary:   var(--c-text);
+  --text-secondary: var(--c-text-muted);
+  --border-color:   var(--c-line);
+  --accent-color:   var(--c-accent);
+  --hover-bg:       var(--c-surface-hover);
+
+  /* ---- Brand accents (use sparingly) ---- */
+  --c-accent:      #3d8bff;
+  --c-accent-soft: rgba(61, 139, 255, 0.14);
+  --c-accent-2:    #3fd0c9;
+
+  /* ---- Status ---- */
+  --c-status-live:   #3ddc97;
+  --c-status-remote: #f5b94a;
+  --c-status-soon:   #8a96ad;
+
+  /* ---- Lens colours (one per solution lens, see data/site.js) ---- */
+  --c-lens-engineering:    #3d8bff;
+  --c-lens-agentic:        #a78bfa;
+  --c-lens-physical:       #3fd0c9;
+  --c-lens-industrial:     #f59e4a;
+  --c-lens-sustainability: #6ad46a;
+
+  /* ---- Typography ---- */
+  --font-sans: "Segoe UI Variable Display", "Segoe UI Variable Text", "Segoe UI",
+               "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Code", "Consolas", ui-monospace, monospace;
+
+  --fs-display: 5.5rem;   /* hero headline            */
+  --fs-h1:      3.5rem;   /* section headline         */
+  --fs-h2:      2.25rem;  /* sub-headline / card title */
+  --fs-h3:      1.5rem;
+  --fs-body:    1.125rem;
+  --fs-small:   0.9375rem;
+  --fs-micro:   0.75rem;
+  --fs-kpi:     4.5rem;   /* big numbers              */
+
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+
+  --lh-tight: 1.05;
+  --lh-snug:  1.25;
+  --lh-body:  1.55;
+
+  --tracking-eyebrow: 0.18em;
+
+  /* ---- Spacing scale ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  --page-pad-x: 6rem;
+  --page-pad-y: 4.5rem;
+
+  /* ---- Shape ---- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med:  320ms;
+  --dur-slow: 700ms;
+
+  /* ---- Layers ---- */
+  --z-nav: 10;
+  --z-overlay: 50;
+}
+
+/* Light mode theme */
+html[data-theme="light"] {
+  --c-bg:            #f8f9fa;
+  --c-bg-raised:     #ffffff;
+  --c-surface:       #f0f2f5;
+  --c-surface-hover: #e8eaed;
+  --c-line:          rgba(0, 0, 0, 0.08);
+  --c-line-strong:   rgba(0, 0, 0, 0.16);
+  --c-text:          #1a1a1a;
+  --c-text-muted:   #5a5a5a;
+  --c-text-faint:    #888888;
+
+  /* Semantic aliases */
+  --bg-primary:     var(--c-bg);
+  --bg-secondary:   var(--c-bg-raised);
+  --text-primary:   var(--c-text);
+  --text-secondary: var(--c-text-muted);
+  --border-color:   var(--c-line);
+  --accent-color:   #2563eb;
+  --hover-bg:       var(--c-surface-hover);
+}
+
+/* Responsive scaling: larger screens use proportional, smaller screens use fixed minimum */
+html {
+  /* Default: proportional scaling for large displays (1920px+) */
+  font-size: clamp(14px, calc(100vw / 120), 20px);
+}
+
+/* Taller-than-16:9 windows: scale by height instead so nothing overflows. */
+@media (max-aspect-ratio: 16/9) {
+  html {
+    font-size: clamp(14px, calc(100vh / 67.5), 20px);
+  }
+}
+
+/* Tablets and lower resolutions: use larger minimum for readability */
+@media (max-width: 1920px) {
+  html {
+    font-size: clamp(14px, calc(100vw / 110), 16px);
+  }
+}
+
+/* Smaller tablets: explicit sizing */
+@media (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Mobile: scale down appropriately */
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Responsive padding for smaller screens */
+@media (max-width: 1920px) {
+  :root {
+    --page-pad-x: clamp(1.5rem, 3%, 4rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --page-pad-x: 2rem;
+    --page-pad-y: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-pad-x: 1rem;
+    --page-pad-y: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med:  0ms;
+    --dur-slow: 0ms;
+  }
+}

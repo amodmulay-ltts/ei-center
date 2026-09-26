@@ -1,0 +1,13 @@
+# Generated review artefacts
+screenshots/
+
+# Tooling
+node_modules/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.claude/settings.local.json

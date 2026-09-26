@@ -1,0 +1,214 @@
+/*
+ * EI Center — shared components (used by landing and demo pages)
+ * Pairs with js/core/components.js.
+ */
+
+/* ---------- Ambient background ---------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(61, 139, 255, 0.16), transparent 60%),
+    radial-gradient(50rem 36rem at -10% 110%, rgba(63, 208, 201, 0.10), transparent 60%),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0) 0 0 / 2rem 2rem,
+    var(--c-bg);
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-slow) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Top navigation ---------- */
+
+.topnav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-nav);
+  height: 5rem;
+  padding: 0 var(--page-pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(7, 11, 20, 0.92), rgba(7, 11, 20, 0));
+  backdrop-filter: blur(6px);
+}
+
+.topnav__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  font-size: var(--fs-small);
+  color: var(--c-text-muted);
+}
+.topnav__mark {
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  color: var(--c-text);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--c-line-strong);
+  border-radius: var(--radius-sm);
+}
+
+.topnav__links {
+  display: flex;
+  gap: var(--sp-6);
+  font-size: var(--fs-small);
+}
+.topnav__links a {
+  color: var(--c-text-faint);
+  padding: var(--sp-2) 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.topnav__links a:hover { color: var(--c-text); }
+.topnav__links a[aria-current="true"] {
+  color: var(--c-text);
+  border-bottom-color: var(--c-accent);
+}
+
+.topnav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-left: auto;
+}
+
+/* ---------- Section head ---------- */
+
+.section-head {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: 62rem;
+}
+.section-head--center { margin-inline: auto; text-align: center; justify-items: center; }
+.section-head__title { font-size: var(--fs-h1); }
+.section-head__lead {
+  font-size: 1.375rem;
+  line-height: var(--lh-snug);
+  color: var(--c-text-muted);
+  max-width: 50rem;
+}
+
+/* ---------- KPI tile ---------- */
+
+.kpi { display: grid; gap: var(--sp-2); }
+.kpi__value {
+  font-size: var(--fs-kpi);
+  font-weight: var(--fw-semi);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #fff, #b9c9e6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+.kpi__label {
+  font-size: var(--fs-small);
+  color: var(--c-text-muted);
+  line-height: var(--lh-snug);
+}
+
+/* ---------- Demo card ---------- */
+
+.demo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-5) var(--sp-5) var(--sp-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  transition: background var(--dur-med) var(--ease-out),
+              border-color var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out),
+              opacity var(--dur-slow) var(--ease-out);
+}
+.demo-card:hover {
+  background: var(--c-surface-hover);
+  border-color: var(--c-line-strong);
+  transform: translateY(-0.25rem);
+}
+.demo-card[data-status="soon"] .demo-card__name { color: var(--c-text-muted); }
+
+.demo-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.demo-card__top .lens { font-size: var(--fs-micro); }
+.demo-card__name { font-size: var(--fs-h3); font-weight: var(--fw-semi); margin-top: var(--sp-2); }
+.demo-card__tagline { font-size: var(--fs-small); color: var(--c-text-muted); line-height: var(--lh-snug); }
+.demo-card__go {
+  position: absolute;
+  right: var(--sp-5);
+  bottom: var(--sp-4);
+  color: var(--c-text-faint);
+  transition: transform var(--dur-fast), color var(--dur-fast);
+}
+.demo-card:hover .demo-card__go { color: var(--c-accent); transform: translateX(0.25rem); }
+
+/* ---------- Demo chip (lifecycle map) ---------- */
+
+.demo-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  font-size: var(--fs-small);
+  line-height: 1.2;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.demo-chip:hover { background: var(--c-surface-hover); border-color: var(--c-line-strong); }
+.demo-chip__dot {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--lens-color);
+}
+.demo-chip--soon { color: var(--c-text-muted); background: transparent; border-style: dashed; }
+.demo-chip--soon .demo-chip__dot { background: transparent; box-shadow: inset 0 0 0 1.5px var(--lens-color); }
+.demo-chip.lens::before { display: none; }
+
+/* ---------- Filter buttons ---------- */
+
+.filters { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+.filter {
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--c-line);
+  font-size: var(--fs-small);
+  color: var(--c-text-muted);
+  transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+}
+.filter:hover { color: var(--c-text); border-color: var(--c-line-strong); }
+.filter[aria-pressed="true"] {
+  background: var(--c-text);
+  color: var(--c-bg);
+  border-color: var(--c-text);
+}
+
+/* ---------- Legend ---------- */
+
+.legend { display: flex; gap: var(--sp-5); }
