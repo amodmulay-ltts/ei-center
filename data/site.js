@@ -81,13 +81,12 @@
 
     discipline: {
       eyebrow: "The Discipline",
-      title: "What is Engineering Intelligence?",
-      lead: "One discipline. Four lenses. AI engineered into the work — not bolted on top.",
+      lead: "One discipline. Four lenses.",
       lenses: [
-        { id: "engineering", num: "01", name: "Engineering AI", tagline: "AI accelerating product design", text: "The only AI that works inside the V-model and PDLC end-to-end." },
-        { id: "agentic", num: "02", name: "Agentic AI", tagline: "Agents at scale", text: "AgenticIQ agents governing manufacturing and engineering at scale." },
-        { id: "physical", num: "03", name: "Physical AI", tagline: "On-device intelligence", text: "On-device AI that makes products think & learn for themselves — certified for safety-critical domains." },
-        { id: "industrial", num: "04", name: "Industrial AI", tagline: "OT-anchored AI", text: "OT-anchored AI — from shop-floor quality to autonomous robotics." }
+        { id: "engineering", num: "01", name: "Engineering AI" },
+        { id: "agentic", num: "02", name: "Agentic AI" },
+        { id: "physical", num: "03", name: "Physical AI" },
+        { id: "industrial", num: "04", name: "Industrial AI" }
       ]
     },
 
