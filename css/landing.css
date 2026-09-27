@@ -277,13 +277,8 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
   }
 }
 
-/* Responsive: tablets (max 768px) */
-@media (max-width: 768px) {
-  /* Seven lifecycle stages and seven nav links can't sit in a row here. */
-  .lifecycle {
-    grid-template-columns: 1fr;
-  }
-
+/* Responsive: medium width (max 800px) */
+@media (max-width: 800px) {
   .topnav {
     height: auto;
     flex-wrap: wrap;
@@ -296,6 +291,14 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
     gap: var(--sp-3);
     order: 3;
     width: 100%;
+  }
+}
+
+/* Responsive: tablets (max 768px) */
+@media (max-width: 768px) {
+  /* Seven lifecycle stages and seven nav links can't sit in a row here. */
+  .lifecycle {
+    grid-template-columns: 1fr;
   }
 
   .topnav__actions {
