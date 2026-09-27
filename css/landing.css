@@ -1,13 +1,15 @@
 /*
  * EI Center — landing page layout
  * One full-screen section per block in site.config.sections.
+ * Presenter mode: scroll snaps to sections, keyboard nav (space/arrows) jumps sections.
  */
 
-html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
 
 .section {
   min-height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   align-items: center;
   padding: calc(5rem + var(--sp-6)) var(--page-pad-x) var(--page-pad-y);
