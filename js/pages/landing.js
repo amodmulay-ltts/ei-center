@@ -35,6 +35,25 @@
       ];
     },
 
+    discipline: function (store) {
+      var c = store.site.discipline;
+      return [
+        ui.sectionHead(c),
+        h("div", { class: "discipline__grid" },
+          c.lenses.map(function (lens, i) {
+            return h("div", { class: "discipline__lens lens lens--" + lens.id + " reveal", style: { "--i": i } },
+              h("div", { class: "discipline__lens-head" },
+                h("span", { class: "discipline__num" }, lens.num),
+                h("span", { class: "discipline__lens-name" }, lens.name)
+              ),
+              h("p", { class: "discipline__tagline" }, lens.tagline),
+              h("p", { class: "discipline__text" }, lens.text)
+            );
+          })
+        )
+      ];
+    },
+
     thesis: function (store) {
       var c = store.site.thesis;
       return [

@@ -30,7 +30,7 @@
        * change the page. Each id needs a renderer in js/pages/landing.js
        * and a content block of the same name below.
        */
-      sections: ["hero", "thesis", "airgap", "lifecycle", "gallery", "proofs", "engagement"]
+      sections: ["hero", "discipline", "thesis", "airgap", "lifecycle", "gallery", "proofs", "engagement"]
     },
 
     labels: {
@@ -41,6 +41,7 @@
       },
       nav: {
         hero:       "Overview",
+        discipline: "The Discipline",
         thesis:     "Our approach",
         airgap:     "AI Café",
         lifecycle:  "Lifecycle",
@@ -77,6 +78,18 @@
       { value: "#1",         label: "largest LTTS design center in Europe" },
       { value: "auto:demos", label: "AI solutions on show" }
     ],
+
+    discipline: {
+      eyebrow: "The Discipline",
+      title: "What is Engineering Intelligence?",
+      lead: "One discipline. Four lenses. AI engineered into the work — not bolted on top.",
+      lenses: [
+        { id: "engineering", num: "01", name: "Engineering AI", tagline: "AI accelerating product design", text: "The only AI that works inside the V-model and PDLC end-to-end." },
+        { id: "agentic", num: "02", name: "Agentic AI", tagline: "Agents at scale", text: "AgenticIQ agents governing manufacturing and engineering at scale." },
+        { id: "physical", num: "03", name: "Physical AI", tagline: "On-device intelligence", text: "On-device AI that makes products think & learn for themselves — certified for safety-critical domains." },
+        { id: "industrial", num: "04", name: "Industrial AI", tagline: "OT-anchored AI", text: "OT-anchored AI — from shop-floor quality to autonomous robotics." }
+      ]
+    },
 
     thesis: {
       eyebrow: "What is Engineering Intelligence",
