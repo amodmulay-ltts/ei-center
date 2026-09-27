@@ -92,8 +92,8 @@
       pillars: [
         { title: "Local LLMs",        text: "State-of-the-art open models running on hardware inside the center." },
         { title: "Air-gapped",        text: "No external API calls. Nothing leaves the network." },
-        { title: "EU AI Act ready",   text: "Human approval, traceability and audit-ready evidence by design." },
-        { title: "No lock-in",        text: "Your models, your environment. Around 90% pre-built, 10% tailored to you." }
+        { title: "No lock-in",        text: "Your models, your environment. Around 90% pre-built, 10% tailored to you." },
+        { title: "Explore. Fail. Build.",   text: "Your playground for AI. Where you experiment freely, iterate fast, and build something awesome." }
       ]
     },
 
