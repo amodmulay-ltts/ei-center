@@ -62,71 +62,106 @@ html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
 .stat__value { font-size: 4rem; font-weight: var(--fw-semi); line-height: 1; letter-spacing: -0.03em; }
 .stat__label { font-size: var(--fs-small); color: var(--c-text-muted); }
 
-/* ---------- Discipline (Four Lenses) ---------- */
+/* ---------- Discipline: four lenses ---------- */
 
-.section--discipline .section__inner {
-  display: grid;
-  gap: var(--sp-6);
-}
+.section--discipline .section__inner,
+.section--stack .section__inner { gap: var(--sp-7); }
 
-.discipline__grid {
+.discipline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-4);
 }
-
 .discipline__lens {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--sp-3);
-  padding: var(--sp-5) var(--sp-4);
-  border-radius: var(--radius-lg);
-  border: 2px solid var(--c-line);
-  background: transparent;
-  transition: border-color var(--dur-med), background var(--dur-med);
-  align-content: start;
-  min-height: 8rem;
+  padding: var(--sp-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-top: 3px solid var(--lens-color);
+  border-radius: var(--radius-md);
+  transition: background var(--dur-med), transform var(--dur-med) var(--ease-out);
 }
+.discipline__lens:hover { background: var(--c-surface-hover); transform: translateY(-0.2rem); }
+.discipline__label {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lens-color);
+}
+.discipline__num { font-family: var(--font-mono); }
+.discipline__headline {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-snug);
+}
+.discipline__text {
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+  color: var(--c-text-muted);
+}
+.discipline__demos {
+  margin-top: auto;
+  padding-top: var(--sp-3);
+  font-size: var(--fs-small);
+  color: var(--c-text-faint);
+  transition: color var(--dur-fast);
+}
+.discipline__demos:hover { color: var(--lens-color); }
 
-.discipline__lens:hover {
-  border-color: var(--c-accent);
+/* ---------- Stack: six layers ---------- */
+
+.stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-2);
+}
+.stack__layer {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
   background: var(--c-surface);
 }
-
-.discipline__num {
+.stack__name {
+  display: grid;
+  align-content: center;
+  gap: var(--sp-1);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--c-bg-raised);
+  border-right: 1px solid var(--c-line);
+  font-weight: var(--fw-semi);
+}
+.stack__num {
   font-family: var(--font-mono);
-  font-size: var(--fs-small);
-  font-weight: var(--fw-semi);
-  color: var(--c-accent);
-  margin: 0;
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-regular);
+  color: var(--c-text-faint);
 }
-
-.discipline__lens-name {
-  font-size: 1.125rem;
-  font-weight: var(--fw-semi);
-  color: var(--c-text);
-  line-height: var(--lh-snug);
-  margin: 0;
-}
-
-/* ---------- Thesis ---------- */
-
-.capabilities {
+.stack__body {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--sp-4);
+  align-content: center;
+  gap: var(--sp-1);
+  padding: var(--sp-3) var(--sp-5);
 }
-.capability {
-  display: grid;
-  gap: var(--sp-6);
-  padding: var(--sp-6);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--c-line);
-  background: linear-gradient(180deg, var(--c-surface), transparent);
-  min-height: 14rem;
-  align-content: space-between;
+.stack__question {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent-2);
 }
-.capability__index { font-family: var(--font-mono); font-size: var(--fs-small); color: var(--c-text-faint); }
-.capability__name { font-size: var(--fs-h2); font-weight: var(--fw-semi); line-height: var(--lh-tight); }
+.stack__text { font-size: var(--fs-small); color: var(--c-text-muted); line-height: var(--lh-snug); }
+.stack__layer--highlight { border-color: var(--c-accent); }
+.stack__layer--highlight .stack__name { background: var(--c-accent-soft); color: var(--c-accent); }
 
 /* ---------- Air-gap ---------- */
 
@@ -293,20 +328,6 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
     font-size: clamp(2rem, 5vw, 4rem);
   }
 
-  .discipline__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .capabilities {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--sp-3);
-  }
-
-  .capability {
-    padding: var(--sp-4);
-    min-height: 10rem;
-  }
-
   .pillar {
     padding: var(--sp-5);
   }
@@ -326,6 +347,13 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
 
   .journey__text {
     font-size: 1rem;
+  }
+}
+
+/* Four lens cards need ~20rem each; pair them up below that. */
+@media (max-width: 1100px) {
+  .discipline {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -379,15 +407,17 @@ a.proof:hover { border-color: var(--c-line-strong); background: var(--c-surface-
     font-size: 2rem;
   }
 
-  .capabilities {
+  .discipline {
     grid-template-columns: 1fr;
-    gap: var(--sp-2);
   }
 
-  .capability {
-    padding: var(--sp-3);
-    min-height: auto;
-    gap: var(--sp-4);
+  .stack__layer {
+    grid-template-columns: 1fr;
+  }
+
+  .stack__name {
+    border-right: 0;
+    border-bottom: 1px solid var(--c-line);
   }
 
   .gallery__grid {

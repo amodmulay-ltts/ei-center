@@ -37,29 +37,43 @@
 
     discipline: function (store) {
       var c = store.site.discipline;
+      var counts = {};
+      store.byLens().forEach(function (g) { counts[g.lens.id] = g.demos.length; });
       return [
-        h("p", { class: "eyebrow" }, c.eyebrow),
-        h("p", { class: "lead" }, c.lead),
-        h("div", { class: "discipline__grid" },
+        ui.sectionHead(c),
+        h("ol", { class: "discipline" },
           c.lenses.map(function (lens, i) {
-            return h("div", { class: "discipline__lens lens lens--" + lens.id + " reveal", style: { "--i": i } },
-              h("span", { class: "discipline__num" }, lens.num),
-              h("span", { class: "discipline__lens-name" }, lens.name)
+            var n = counts[lens.id] || 0;
+            return h("li", { class: "discipline__lens lens--" + lens.id + " reveal", style: { "--i": i } },
+              h("p", { class: "discipline__label" },
+                h("span", { class: "discipline__num" }, lens.num),
+                " · " + lens.name
+              ),
+              h("h3", { class: "discipline__headline" }, lens.headline),
+              h("p", { class: "discipline__text" }, lens.text),
+              n > 0 && h("a", { class: "discipline__demos", href: "#gallery" },
+                n + (n === 1 ? " demo" : " demos") + " in the room →")
             );
           })
         )
       ];
     },
 
-    thesis: function (store) {
-      var c = store.site.thesis;
+    stack: function (store) {
+      var c = store.site.stack;
       return [
         ui.sectionHead(c),
-        h("ul", { class: "capabilities" },
-          c.capabilities.map(function (cap, i) {
-            return h("li", { class: "capability reveal", style: { "--i": i } },
-              h("span", { class: "capability__index" }, String(i + 1).padStart(2, "0")),
-              h("span", { class: "capability__name" }, cap)
+        h("ol", { class: "stack" },
+          c.layers.map(function (l, i) {
+            return h("li", { class: "stack__layer reveal" + (l.highlight ? " stack__layer--highlight" : ""), style: { "--i": i } },
+              h("div", { class: "stack__name" },
+                h("span", { class: "stack__num" }, "Layer " + l.num),
+                h("span", null, l.name)
+              ),
+              h("div", { class: "stack__body" },
+                h("p", { class: "stack__question" }, l.question),
+                h("p", { class: "stack__text" }, l.text)
+              )
             );
           })
         )

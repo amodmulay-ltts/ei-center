@@ -30,7 +30,7 @@
        * change the page. Each id needs a renderer in js/pages/landing.js
        * and a content block of the same name below.
        */
-      sections: ["hero", "discipline", "thesis", "airgap", "lifecycle", "gallery", "proofs", "engagement"]
+      sections: ["hero", "discipline", "stack", "airgap", "lifecycle", "gallery", "proofs", "engagement"]
     },
 
     labels: {
@@ -42,7 +42,7 @@
       nav: {
         hero:       "Overview",
         discipline: "The Discipline",
-        thesis:     "Our approach",
+        stack:      "The Stack",
         airgap:     "AI Café",
         lifecycle:  "Lifecycle",
         gallery:    "Demos",
@@ -79,22 +79,49 @@
       { value: "auto:demos", label: "AI solutions on show" }
     ],
 
+    /*
+     * The four lenses of the discipline. `id` must be a lens id from
+     * `lenses` below; the card takes its colour and demo count from it.
+     */
     discipline: {
-      eyebrow: "The Discipline",
-      lead: "One discipline. Four lenses.",
+      eyebrow: "What is Engineering Intelligence",
+      title: "Intelligence engineered in, not bolted on.",
+      lead: "The discipline of building intelligence into everything we engineer, and everything we engineer with. One discipline, applied through four lenses.",
       lenses: [
-        { id: "engineering", num: "01", name: "Engineering AI" },
-        { id: "agentic", num: "02", name: "Agentic AI" },
-        { id: "physical", num: "03", name: "Physical AI" },
-        { id: "industrial", num: "04", name: "Industrial AI" }
+        { id: "engineering", num: "01", name: "Engineering AI",
+          headline: "Products designed with intelligence.",
+          text: "AI inside the V-model, from requirement to verified design, with every output traced to its source." },
+        { id: "agentic", num: "02", name: "Agentic AI",
+          headline: "Work that runs itself, under governance.",
+          text: "Agents that plan, act and hand off across engineering and manufacturing, with people approving what matters." },
+        { id: "physical", num: "03", name: "Physical AI",
+          headline: "Products that sense, think and learn.",
+          text: "On-device intelligence at the edge, built for safety-critical, certified domains." },
+        { id: "industrial", num: "04", name: "Industrial AI",
+          headline: "Factories that improve themselves.",
+          text: "AI anchored in the OT stack, from shop-floor quality to lights-out production." }
       ]
     },
 
-    thesis: {
-      eyebrow: "What is Engineering Intelligence",
-      title: "AI built into the V-model, not bolted on.",
-      lead: "We are an engineering company applying AI to engineering work: design, requirements, test, safety and manufacturing. Cost, speed and quality on real engineering problems.",
-      capabilities: ["Generative AI", "Agentic AI", "Multimodal AI", "Physical AI", "Edge Intelligence"]
+    /* The Engineering Intelligence Stack, listed top (6) to bottom (1). */
+    stack: {
+      eyebrow: "The Engineering Intelligence Stack",
+      title: "Six layers, from complexity to outcomes.",
+      lead: "AI is only as good as what lies beneath it. We engineer every layer, so what works in this room holds up in production.",
+      layers: [
+        { num: 6, name: "Intelligent Outcomes", question: "What changes in the world",
+          text: "Software-defined mobility, intelligent care, autonomous and sustainable plants, resilient energy." },
+        { num: 5, name: "EI Assets", question: "How intelligence is put to work",
+          text: "Proven platforms such as PLxAI, AiTest, AgenticIQ and SiMa.ai. The solutions you can try in this room." },
+        { num: 4, name: "Intelligence Layer", question: "How systems learn, reason and act",
+          text: "The four lenses: Engineering, Agentic, Physical and Industrial AI.", highlight: true },
+        { num: 3, name: "Digital Foundations", question: "How complex systems become AI-ready",
+          text: "Digital twins, platform modernisation and integration across OPC UA, AUTOSAR, SOME/IP, A2A and MCP." },
+        { num: 2, name: "Engineering Data", question: "How knowledge is captured and governed",
+          text: "Pipelines, curation, domain-specific labelling, governance and security that make engineering knowledge usable by AI." },
+        { num: 1, name: "Environments", question: "Where the complexity lives",
+          text: "Vehicles, medical devices, factory OT from L0 to L4, robots, industrial infrastructure, telecom, silicon and data centres." }
+      ]
     },
 
     airgap: {

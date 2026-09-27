@@ -66,6 +66,13 @@ Empty lists are fine: the demo page hides any section that has no content.
 | `idleTimeoutMinutes` | `3` | Inactivity before the screen returns to attract mode. |
 | `attractSlideSeconds` | `12` | How long each section shows in attract mode. |
 
+## The Discipline and the Stack
+
+Two sections explain what Engineering Intelligence means at LTTS. Both live in `data/site.js`.
+
+- **`site.discipline`**: the four lenses. Each entry has `id`, `num`, `name`, `headline` and `text`. `id` must be a lens id from `site.lenses`: the card takes its colour from it, and its "N demos in the room" link counts published demos with that lens. Keep `text` to one sentence so the four cards fit on one row.
+- **`site.stack`**: the six layers, listed top (6) to bottom (1). Each entry has `num`, `name`, `question` and `text`. Set `highlight: true` on a layer to accent it; Layer 4 is highlighted because that is where the four lenses sit.
+
 ## Stats
 
 `site.stats` values are shown as-is, except `"auto:demos"` (number of published demos) and `"auto:live"` (number of live demos), which are counted automatically.
