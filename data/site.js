@@ -87,8 +87,8 @@
 
     airgap: {
       eyebrow: "The AI Café",
-      title: "Your data stays in the room.",
-      lead: "The center runs on an air-gapped network with local models, so teams can work with real engineering data without navigating corporate or customer data-protection approvals first.",
+      title: "No gatekeepers. No friction.",
+      lead: "Where corporate red tape disappears. Explore fearlessly, experiment without approval loops, iterate quickly, and build something awesome — together, on your terms.",
       pillars: [
         { title: "Local LLMs",        text: "State-of-the-art open models running on hardware inside the center." },
         { title: "Air-gapped",        text: "No external API calls. Nothing leaves the network." },
