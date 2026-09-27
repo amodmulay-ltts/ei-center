@@ -56,7 +56,7 @@
         { title: "Secure and private", text: "Runs on local models inside your environment." }
       ],
       media: {},
-      launch: { url: null, label: "Launch PLxAI" },
+      launch: { url: "https://ltts.plxai.tech/dashboard", label: "Launch PLxAI" },
       contact: "Mobility · Annapureddy Veera Reddy"
     },
 
@@ -132,7 +132,7 @@
         { title: "Model-agnostic", text: "Swap models as better, cheaper ones arrive, without rebuilding." }
       ],
       media: {},
-      launch: { url: null, label: "Launch AgenticIQ" },
+      launch: { url: "https://agenticiq.ltts.com/", label: "Launch AgenticIQ" },
       contact: "CTO office · Roshan Manuel S R"
     },
 
