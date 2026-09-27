@@ -180,3 +180,5 @@ In short, PLxAI moves organizations from isolated AI pilots to a scalable PDLC-w
 - Proof: 20 live, 16 underway, 35+ pipeline
 - Value: faster cycles, better quality, lower effort and cost, stronger strategic response
 - End line: "from AI experiments to scalable PDLC operating system"
+
+Demo link: https://ltts.plxai.tech/dashboard
