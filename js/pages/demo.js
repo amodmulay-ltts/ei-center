@@ -162,12 +162,29 @@
     );
   }
 
-  /* Render markdown content section */
+  /* Render collapsible markdown content section */
   function demoContent(content) {
     if (!content) return null;
-    return h("section", { class: "demo-section demo-section--content" },
-      h("h2", null, "About"),
-      h("div", { class: "demo-content" }, renderMarkdown(content))
+    var contentId = "content-" + Math.random().toString(36).slice(2, 9);
+    return h("section", { class: "demo-section demo-section--collapsible" },
+      h("button", {
+        class: "demo-section__toggle",
+        "aria-expanded": "false",
+        "aria-controls": contentId,
+        onclick: function(e) {
+          var btn = e.target;
+          var isExpanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", !isExpanded);
+          var content = document.getElementById(contentId);
+          if (content) {
+            content.classList.toggle("is-open");
+          }
+        }
+      },
+        h("span", { class: "demo-section__toggle-icon" }, "▸"),
+        h("span", null, "About")
+      ),
+      h("div", { id: contentId, class: "demo-content" }, renderMarkdown(content))
     );
   }
 

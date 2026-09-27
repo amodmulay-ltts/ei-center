@@ -311,9 +311,55 @@
   padding-top: 2rem;
 }
 
+/* Collapsible sections */
+.demo-section--collapsible {
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+}
+
+.demo-section__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color var(--dur-fast);
+  margin-bottom: 1.5rem;
+}
+
+.demo-section__toggle:hover {
+  color: var(--accent-color);
+}
+
+.demo-section__toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  transition: transform var(--dur-fast);
+  font-size: 1.25rem;
+}
+
+.demo-section__toggle[aria-expanded="true"] .demo-section__toggle-icon {
+  transform: rotate(90deg);
+}
+
 .demo-content {
   line-height: 1.7;
   font-size: 0.95rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-slow);
+}
+
+.demo-content.is-open {
+  max-height: 10000px;
+  overflow: visible;
 }
 
 .demo-content p {
