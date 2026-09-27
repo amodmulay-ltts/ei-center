@@ -188,20 +188,28 @@
 
   /* Main render function */
   function render(target, store, demo, content) {
-    EI.mount(target, h("div", { class: "demo-page" },
+    EI.mount(target, h("div", { class: "demo-page demo-page--dashboard" },
       demoHeader(store, demo),
       h("main", { class: "demo-main" },
-        demoHero(store, demo),
-        h("div", { class: "demo-details" },
-          demoProblems(demo),
-          demoSteps(demo),
-          demoKpis(demo),
-          demoFeatures(demo),
-          demoContent(content),
-          h("div", { class: "demo-cta" },
+        h("section", { class: "demo-dashboard-hero" },
+          demoHero(store, demo),
+          h("div", { class: "demo-dashboard-actions" },
             demoLaunchButton(store, demo)
           )
-        )
+        ),
+        demoKpis(demo),
+        h("div", { class: "demo-dashboard-grid" },
+          h("div", { class: "demo-dashboard-col" },
+            demoProblems(demo)
+          ),
+          h("div", { class: "demo-dashboard-col" },
+            demoSteps(demo)
+          ),
+          h("div", { class: "demo-dashboard-col" },
+            demoFeatures(demo)
+          )
+        ),
+        demoContent(content)
       )
     ));
 

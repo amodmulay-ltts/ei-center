@@ -108,6 +108,74 @@
   padding: 0 var(--page-pad-x) var(--sp-8);
 }
 
+/* Dashboard layout */
+.demo-page--dashboard .demo-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+}
+
+.demo-dashboard-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--sp-6);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.demo-dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  justify-content: flex-start;
+}
+
+.demo-dashboard-actions .demo-launch {
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* KPIs moved to top and emphasized */
+.demo-page--dashboard .demo-kpis {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-6);
+}
+
+.demo-page--dashboard .demo-kpis .kpi {
+  padding: var(--sp-6);
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+/* Dashboard grid: 3 columns for problems, steps, features */
+.demo-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--sp-6);
+}
+
+.demo-dashboard-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-dashboard-col .demo-section {
+  flex: 1;
+}
+
+.demo-dashboard-col h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-3);
+  border-bottom: 2px solid var(--accent-color);
+}
+
 /* Long-form prose keeps a comfortable measure even on wide screens. */
 .demo-content { max-width: 62rem; }
 
