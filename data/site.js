@@ -30,7 +30,7 @@
        * change the page. Each id needs a renderer in js/pages/landing.js
        * and a content block of the same name below.
        */
-      sections: ["hero", "discipline", "stack", "airgap", "lifecycle", "gallery", "proofs", "engagement"]
+      sections: ["hero", "airgap", "discipline", "stack", "lifecycle", "gallery", "proofs", "engagement"]
     },
 
     labels: {
