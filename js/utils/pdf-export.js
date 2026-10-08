@@ -16,15 +16,24 @@
     var style = document.createElement("style");
     style.textContent = `
       .pdf-export-container {
-        padding: 2rem 0;
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10000;
         display: flex;
         justify-content: center;
+        align-items: center;
       }
 
       .pdf-export-footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        background: var(--c-bg);
       }
 
       .pdf-export-btn {
@@ -35,19 +44,21 @@
         background: var(--c-text);
         color: var(--c-bg);
         border: none;
-        border-radius: 0.5rem;
+        border-radius: 0.4rem;
         font-weight: 500;
         font-size: 0.95rem;
         cursor: pointer;
-        transition: opacity 0.2s ease;
+        transition: all 0.2s ease;
       }
 
       .pdf-export-btn:hover {
         opacity: 0.85;
+        transform: translateY(-2px);
       }
 
       .pdf-export-btn:active {
         opacity: 0.7;
+        transform: translateY(0);
       }
 
       .pdf-export-btn:disabled {
@@ -65,6 +76,10 @@
       }
 
       @media (prefers-color-scheme: dark) {
+        .pdf-export-footer {
+          background: var(--c-bg);
+        }
+
         .pdf-export-btn {
           background: var(--c-text);
           color: var(--c-bg);
@@ -73,7 +88,18 @@
 
       @media print {
         .pdf-export-container {
-          display: none;
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pdf-export-container {
+          bottom: 1rem;
+        }
+
+        .pdf-export-btn {
+          padding: 0.65rem 1.25rem;
+          font-size: 0.9rem;
         }
       }
     `;
@@ -89,9 +115,6 @@
   }
 
   function insertExportButton() {
-    var app = document.getElementById("app");
-    if (!app) return;
-
     var container = document.createElement("div");
     container.className = "pdf-export-container";
 
@@ -121,7 +144,7 @@
 
     footer.appendChild(btn);
     container.appendChild(footer);
-    app.parentNode.insertBefore(container, app.nextSibling);
+    document.body.appendChild(container);
   }
 
   function exportToPDF() {
