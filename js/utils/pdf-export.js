@@ -90,6 +90,18 @@
         .pdf-export-container {
           display: none !important;
         }
+
+        /* Preserve theme colors in print output */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        body, html {
+          background: var(--c-bg) !important;
+          color: var(--c-text) !important;
+        }
       }
 
       @media (max-width: 640px) {
