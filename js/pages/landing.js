@@ -190,6 +190,40 @@
         ),
         h("p", { class: "journey__cta reveal" }, c.cta)
       ];
+    },
+
+    "ai-models": function (store) {
+      var c = store.site["ai-models"];
+      return [
+        ui.sectionHead(c),
+        h("p", { class: "ai-models__thesis reveal" }, '"' + c.thesis + '"'),
+        h("div", { class: "ai-models__ladder" },
+          c.models.map(function (m, i) {
+            return h("div", { class: "ai-models__level reveal", style: { "--i": i } },
+              h("div", { class: "ai-models__level-header" },
+                h("span", { class: "ai-models__level-num" }, "Level " + m.level),
+                h("h3", { class: "ai-models__level-name" }, m.name)
+              ),
+              h("div", { class: "ai-models__level-body" },
+                h("p", { class: "ai-models__capability" }, m.capability),
+                h("p", { class: "ai-models__label" },
+                  h("span", { class: "ai-models__label-text" }, "Examples: "),
+                  m.examples
+                ),
+                h("p", { class: "ai-models__label" },
+                  h("span", { class: "ai-models__label-text" }, "When to use: "),
+                  m.use
+                ),
+                h("p", { class: "ai-models__cost" }, m.costRange)
+              )
+            );
+          })
+        ),
+        h("div", { class: "ai-models__insight reveal" },
+          h("p", c.insight),
+          h("p", { class: "ai-models__footer" }, c.footer)
+        )
+      ];
     }
   };
 

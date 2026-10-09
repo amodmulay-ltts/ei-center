@@ -30,7 +30,7 @@
        * change the page. Each id needs a renderer in js/pages/landing.js
        * and a content block of the same name below.
        */
-      sections: ["hero", "airgap", "discipline", "stack", "lifecycle", "gallery", "proofs", "engagement"]
+      sections: ["hero", "airgap", "discipline", "stack", "lifecycle", "gallery", "proofs", "engagement", "ai-models"]
     },
 
     labels: {
@@ -47,7 +47,8 @@
         lifecycle:  "Lifecycle",
         gallery:    "Demos",
         proofs:     "Results",
-        engagement: "Work with us"
+        engagement: "Work with us",
+        "ai-models": "AI Models"
       },
       allLenses: "All",
       explore: "Explore",
@@ -226,6 +227,57 @@
         { title: "Scale",      text: "Pilot-to-program in your environment, on your models." }
       ],
       cta: "Start with a 2-day Engineering Intelligence workshop, here in Munich."
+    },
+
+    "ai-models": {
+      eyebrow: "AI Model Strategy",
+      title: "Match the model to the task.",
+      lead: "Intelligence is a portfolio, not a single model. Choose by task complexity, cost, capability and governance needs.",
+      thesis: "Do not use a Formula 1 car to deliver a pizza.",
+      models: [
+        {
+          level: 0,
+          name: "No AI",
+          capability: "Lowest cost",
+          examples: "Transformation, validation, formatting, static analysis, build automation.",
+          use: "Deterministic tasks with clear rules. No learning required.",
+          costRange: "~EUR 0"
+        },
+        {
+          level: 1,
+          name: "Local & Small Models",
+          capability: "Efficient & private",
+          examples: "Ticket classification, code clustering, log summarisation, test-data generation.",
+          use: "Routine work that doesn't need frontier capability. Runs on your hardware.",
+          costRange: "~USD 0.05–1 per million tokens"
+        },
+        {
+          level: 2,
+          name: "Enterprise Models",
+          capability: "Balanced",
+          examples: "Requirements analysis, code generation, unit tests, documentation, RAG, debugging, migration.",
+          use: "Core engineering tasks. Accuracy, consistency and governance matter.",
+          costRange: "~USD 1–3 per million tokens"
+        },
+        {
+          level: 3,
+          name: "Hybrid & Multi-Model",
+          capability: "Flexible",
+          examples: "Routing requests by task, complexity and cost. Combining small and frontier models.",
+          use: "Intelligence as a portfolio. Route each request to the cheapest sufficient model.",
+          costRange: "Mix of models → optimal spend"
+        },
+        {
+          level: 4,
+          name: "Frontier Models",
+          capability: "Highest capability",
+          examples: "Complex architecture decisions, hard debugging, cross-system and security analysis.",
+          use: "Novel problems, creativity, safety-critical decisions.",
+          costRange: "~USD 6 per million tokens (100× small models)"
+        }
+      ],
+      insight: "At scale, the token cost spread is the budget. Routing matters more than model switching.",
+      footer: "Strategy → Capability → Cost. In that order."
     }
   };
 
