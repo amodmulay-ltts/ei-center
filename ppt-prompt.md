@@ -183,7 +183,7 @@ Use these exact colors throughout:
 
 ### Section 6: Solutions Gallery
 - **Eyebrow**: "Solutions"
-- **Title**: "Explore the demos."
+- **Title**: "Live in our center. Ready for yours."
 - **Lead**: "Every solution runs on the customer's own data, models and environment."
 - **Filters** (optional): All, Engineering AI, Agentic AI, Physical AI, Industrial AI, Sustainable AI
 - **Content**: Grid of demo cards (each with lens color indicator, title, description)
@@ -310,6 +310,12 @@ Before finalizing each slide:
 - Updated model costs to October 2026 market rates
 - Added insights about frontier-class capability and context window penalties
 - Detailed card layout with gradient accent bars
+
+### v1.2 – October 9, 2026
+**Updated Solutions Gallery messaging**
+- Section 6 title changed from "Explore the demos" to "Live in our center. Ready for yours."
+- Repositions solutions as production-ready, not experimental
+- Emphasizes deployed status and readiness for customer deployment
 
 ---
 
