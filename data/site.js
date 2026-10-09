@@ -232,7 +232,7 @@
     "ai-models": {
       eyebrow: "AI Model Strategy",
       title: "Match the model to the task.",
-      lead: "Intelligence is a portfolio, not a single model. Choose by task complexity, cost, capability and governance needs.",
+      lead: "Intelligence is a portfolio, not a single model. Choose by task complexity, cost, capability and governance needs. Prices reflect October 2026 market rates.",
       thesis: "Do not use a Formula 1 car to deliver a pizza.",
       models: [
         {
@@ -241,7 +241,7 @@
           capability: "Lowest cost",
           examples: "Transformation, validation, formatting, static analysis, build automation.",
           use: "Deterministic tasks with clear rules. No learning required.",
-          costRange: "~EUR 0"
+          costRange: "EUR 0 (rule-based processing)"
         },
         {
           level: 1,
@@ -249,7 +249,7 @@
           capability: "Efficient & private",
           examples: "Ticket classification, code clustering, log summarisation, test-data generation.",
           use: "Routine work that doesn't need frontier capability. Runs on your hardware.",
-          costRange: "~USD 0.05–1 per million tokens"
+          costRange: "USD 0.0002–0.40 per million tokens (Llama, Mistral, DeepSeek V4-Flash)"
         },
         {
           level: 2,
@@ -257,7 +257,7 @@
           capability: "Balanced",
           examples: "Requirements analysis, code generation, unit tests, documentation, RAG, debugging, migration.",
           use: "Core engineering tasks. Accuracy, consistency and governance matter.",
-          costRange: "~USD 1–3 per million tokens"
+          costRange: "USD 1.20–10 per million tokens (Claude 3.5, GPT-4o, Gemini 2.5)"
         },
         {
           level: 3,
@@ -265,7 +265,7 @@
           capability: "Flexible",
           examples: "Routing requests by task, complexity and cost. Combining small and frontier models.",
           use: "Intelligence as a portfolio. Route each request to the cheapest sufficient model.",
-          costRange: "Mix of models → optimal spend"
+          costRange: "Blended: typically USD 2–6 per million tokens"
         },
         {
           level: 4,
@@ -273,10 +273,10 @@
           capability: "Highest capability",
           examples: "Complex architecture decisions, hard debugging, cross-system and security analysis.",
           use: "Novel problems, creativity, safety-critical decisions.",
-          costRange: "~USD 6 per million tokens (100× small models)"
+          costRange: "USD 3–30 per million tokens (Claude 4 Opus, GPT-5 Turbo, Gemini 3.6)"
         }
       ],
-      insight: "At scale, the token cost spread is the budget. Routing matters more than model switching.",
+      insight: "DeepSeek V3.5 offers frontier-class capability at USD 0.40/M tokens input. At Volkswagen's inference volumes, routing between cost tiers creates the largest margin. Context window penalties (2× for >64K tokens) reshape ROI on RAG pipelines.",
       footer: "Strategy → Capability → Cost. In that order."
     }
   };
