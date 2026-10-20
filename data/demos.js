@@ -272,7 +272,7 @@
         { title: "Embedded-ready",      text: "Model optimisation for edge deployment." }
       ],
       media: {},
-      launch: { url: null, label: "Launch demo" },
+      launch: { url: null, label: "Open solution" },
       contact: "Mobility · Amod Mulay"
     },
 
@@ -341,7 +341,7 @@
         { title: "Explainable analytics", text: "Every defect decision traceable." },
         { title: "Higher first-pass yield", text: "Less manual inspection effort." }
       ],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Digital Manufacturing · Shankar Subramanian"
     },
     {
@@ -356,7 +356,7 @@
         { title: "Real-time defect classes", text: "Broken, chipped, misaligned, missing filling, colour." },
         { title: "Closed-loop RCA", text: "Links defects back to process parameters." }
       ],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Digital Manufacturing · Shankar Subramanian"
     },
     {
@@ -367,7 +367,7 @@
       status: "soon", lens: "industrial", stages: ["manufacturing", "operations"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Digital Manufacturing · Shankar Subramanian"
     },
     {
@@ -378,7 +378,7 @@
       status: "soon", lens: "industrial", stages: ["validation", "manufacturing"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Digital Manufacturing · Shankar Subramanian"
     },
     {
@@ -389,7 +389,7 @@
       status: "soon", lens: "physical", stages: ["manufacturing"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Digital Manufacturing · Shankar Subramanian"
     },
     {
@@ -411,7 +411,7 @@
       status: "soon", lens: "industrial", stages: ["manufacturing"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "PE · Aswini Kapil"
     },
     {
@@ -422,7 +422,7 @@
       status: "soon", lens: "engineering", stages: ["software", "validation"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Mobility · Dr Guru Prasad AS"
     },
     {
@@ -437,7 +437,7 @@
         { value: "3 mo → 5 wk", label: "life cycle assessment duration" }
       ],
       features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Mahesh Kumar Nagrajan"
     },
     {
@@ -448,7 +448,7 @@
       status: "soon", lens: "sustainability", stages: ["design", "manufacturing"],
       published: true, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "Mahesh Kumar Nagrajan"
     },
 
@@ -458,7 +458,7 @@
       status: "soon", lens: "industrial", stages: [],
       published: false, contentStatus: "draft",
       problem: [], steps: [], kpis: [], features: [],
-      media: {}, launch: { url: null, label: "Launch demo" },
+      media: {}, launch: { url: null, label: "Open solution" },
       contact: "DMS · SAI · Shreyans"
     }
   ];

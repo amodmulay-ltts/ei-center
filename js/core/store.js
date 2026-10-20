@@ -154,7 +154,7 @@
        */
       launchState: function (demo) {
         var l = demo.launch || {};
-        if (l.url) return { enabled: true, url: l.url, label: l.label || "Launch demo" };
+        if (l.url) return { enabled: true, url: l.url, label: l.label || "Open solution" };
         return { enabled: false, url: null, label: "Ask your host to launch" };
       }
     };

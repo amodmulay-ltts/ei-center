@@ -79,7 +79,7 @@
   function demoHeader(store, demo) {
     return h("nav", { class: "demo-nav" },
       h("a", { class: "demo-nav__back", href: "index.html#gallery" },
-        "← Back to all demos"
+        "← Back to all solutions"
       ),
       h("div", { class: "demo-nav__brand" },
         h("span", { class: "demo-nav__mark" }, store.site.brand.short),
@@ -198,7 +198,7 @@
       return h("a", { class: "demo-launch", href: url, target: "_blank" }, label);
     } else {
       return h("p", { class: "demo-launch demo-launch--unavailable" },
-        "Ask your host to launch this demo"
+        "Ask your host to launch this solution"
       );
     }
   }
@@ -238,7 +238,7 @@
     var demoId = getDemoIdFromUrl();
 
     if (!demoId) {
-      document.getElementById("app").textContent = "No demo specified. Use ?id=demo-name";
+      document.getElementById("app").textContent = "No solution specified. Use ?id=solution-name";
       return;
     }
 
@@ -247,7 +247,7 @@
     var demo = store.get(demoId);
 
     if (!demo) {
-      document.getElementById("app").textContent = "Demo not found: " + demoId;
+      document.getElementById("app").textContent = "Solution not found: " + demoId;
       return;
     }
 

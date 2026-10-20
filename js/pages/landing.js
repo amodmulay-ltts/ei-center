@@ -52,7 +52,7 @@
               h("h3", { class: "discipline__headline" }, lens.headline),
               h("p", { class: "discipline__text" }, lens.text),
               n > 0 && h("a", { class: "discipline__demos", href: "#gallery" },
-                n + (n === 1 ? " demo" : " demos") + " in the room →")
+                n + (n === 1 ? " solution" : " solutions") + " in the room →")
             );
           })
         )

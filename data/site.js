@@ -45,7 +45,7 @@
         stack:      "The Stack",
         airgap:     "AI Café",
         lifecycle:  "Lifecycle",
-        gallery:    "Demos",
+        gallery:    "Solutions",
         proofs:     "Results",
         engagement: "Work with us",
         "ai-models": "AI Models"
@@ -157,7 +157,7 @@
 
     gallery: {
       eyebrow: "Solutions",
-      title: "Explore the demos.",
+      title: "Explore the solutions.",
       lead: "Every solution runs on the customer's own data, models and environment."
     },
 
@@ -221,7 +221,7 @@
       eyebrow: "How we work together",
       title: "From first conversation to production.",
       steps: [
-        { title: "Experience", text: "Live demos on your engineering problems, not ours." },
+        { title: "Experience", text: "Live solutions for your engineering problems, not ours." },
         { title: "Co-create",  text: "Design-thinking and discovery workshops to frame use cases." },
         { title: "Build",      text: "Innovation Garage: a working MVP in 2 to 6 weeks." },
         { title: "Scale",      text: "Pilot-to-program in your environment, on your models." }
